@@ -12,9 +12,9 @@ class Producto {constructor (nombre, precio, cantidad) //funcion constructora de
                 this.stock = parseInt(cantidad)}}
 
 
-const kokedama = new Producto ("kokedama", 1000, 1) ; Productos.push(kokedama)
 const planta = new Producto ("planta", 400, 2) ; Productos.push(planta)
-const maceta = new Producto ("maceta", 600, 2) ; Productos.push(maceta)
+const kokedama = new Producto ("kokedama", 1000, 1) ; Productos.push(kokedama)
+const maceta = new Producto ("maceta", 600, 1) ; Productos.push(maceta)
 
 
 function iniciarCompra()
@@ -26,13 +26,13 @@ function solicitarProducto()
 return producto.toLowerCase()} 
 
 function actualizarStock(productoToLowerCase) 
-{for (const producto of Productos)
+{for (let producto of Productos)
     {if (productoToLowerCase === producto.nombre){producto.stock = producto.stock - 1 }}}
 
 function verificarStock(productoToLowerCase)
-{for (const producto of Productos)
+{for (let producto of Productos)
     {if (productoToLowerCase === producto.nombre && producto.stock === 0)
-        {alert("No hay mas stock del producto seleccionado"); return false}else{return true}}}
+        {alert("No hay mas stock del producto seleccionado"); return false}}}
 
 function ingresarProductos(productoToLowerCase)
 {do {productoToLowerCase = solicitarProducto() ;
@@ -81,4 +81,3 @@ else {alert("Gracias por tu visita, te esperamos pronto");
      console.log("No ingresaste nada a tu carrito")}
 
 console.log(Productos)
-
